@@ -5,7 +5,7 @@ import { ThemeProvider } from "./components/theme-provider"
 import { ModeToggle } from "./components/mode-toggle";
 import { io } from "socket.io-client";
 import { useEffect } from "react";
-import Chat from "./components/Chat";
+// import Chat from "./components/Chat";
 import { useState } from "react";
 import Home from "./components/Home";
 import { SocketProvider } from "./context/socketContext";
@@ -35,15 +35,15 @@ function Layout() {
 
 function App() {
 
-  const [socket, setSocket] = useState(null);
+  // const [socket, setSocket] = useState(null);
 
-  useEffect(() => {
-    const newSocket = io("http://localhost:3000", {
-        autoConnect: false
-    });
-    console.log("Created socket:", newSocket);
-    setSocket(newSocket);
-  }, []);
+  // useEffect(() => {
+  //   const newSocket = io("http://localhost:3000", {
+  //       autoConnect: false
+  //   });
+  //   console.log("Created socket:", newSocket);
+  //   setSocket(newSocket);
+  // }, []);
 
 
   return (
@@ -53,8 +53,8 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="bingo" element={<BingoGrid socket={socket} />} />
-              <Route path="chat" element={ socket && <Chat socket={socket} />} />
+              <Route path="bingo" element={<BingoGrid />} />
+              {/* <Route path="chat" element={ socket && <Chat socket={socket} />} /> */}
             </Route>
           </Routes>
         </BrowserRouter>
