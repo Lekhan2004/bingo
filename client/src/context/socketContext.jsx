@@ -17,7 +17,7 @@ export function SocketProvider({ children }) {
 
   useEffect(() => {
     const socket = io("http://localhost:3000", {
-      autoConnect: false,
+      autoConnect: true,
     });
 
     socketRef.current = socket;
